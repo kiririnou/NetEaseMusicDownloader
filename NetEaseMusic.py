@@ -84,8 +84,8 @@ def get_genre_code(genre):
 
 
 def get_params(text):
-    first_key = '0CoJUm6Qyw8W8jud'
-    second_key = 'FFFFFFFFFFFFFFFF'
+    first_key = str.encode('0CoJUm6Qyw8W8jud')
+    second_key = str.encode('FFFFFFFFFFFFFFFF')
     h_encText = AES_encrypt(text, first_key)
     h_encText = AES_encrypt(h_encText, second_key)
 
@@ -105,9 +105,10 @@ def get_encSecKey():
 
 
 def AES_encrypt(text, key):
-    iv = '0102030405060708'
+    iv = str.encode('0102030405060708')
     pad = 16 - len(text) % 16
     text = text + pad * chr(pad)
+    text = str.encode(text)
     encryptor = AES.new(key, AES.MODE_CBC, iv)
     encrypt_text = encryptor.encrypt(text)
     encrypt_text = base64.b64encode(encrypt_text)
