@@ -74,6 +74,8 @@
    Then you can run script(NetEaseMusic.py) in terminal with python3. Like:
 
    ```shell
+   python3 -m venv venv (optional)
+   pip3 install -r requirements.txt
    python3 NetEaseMusic.py
    ```
 
